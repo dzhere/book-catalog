@@ -5,9 +5,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.edit import FormView
 from django.urls import reverse
 
-def index_view(request):
-    return render(request, 'index.html')
-
 def registration_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
