@@ -1,17 +1,33 @@
 from django.views.generic import CreateView
+from django.shortcuts import redirect
 from core.models import *
 
 class AddAuthorView(CreateView):
     model = Author
-    fields = ('first_name', 'last_name', 'birtday_date', 'country')
+    fields = ('__all__')
     template_name = 'books/add.html'
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.save() 
+        return redirect("/")
 
 class AddGenreView(CreateView):
     model = Genre
-    fields = ('name',)
+    fields = ('__all__')
     template_name = 'books/add.html'
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.save() 
+        return redirect("/")
 
 class AddBookView(CreateView):
     model = Book
-    fields = ('authors', 'title')
+    fields = ('__all__')
     template_name = 'books/add.html'
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.save() 
+        return redirect("/")
