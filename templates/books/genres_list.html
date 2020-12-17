@@ -1,9 +1,10 @@
 {% extends "../base.html" %}
 
 {% block content %}
-<ul>
+<h1>Список жанрів</h1>
+<ul class="list-group">
     {% for genre in object_list %}
-    <li>{{ genre.name }}</li>
+    <li class="list-group-item">{{ genre.name }}</li>
     {% endfor %}
 </ul>
 {% endblock %}

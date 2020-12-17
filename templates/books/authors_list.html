@@ -1,9 +1,10 @@
 {% extends "../base.html" %}
 
 {% block content %}
-<ul>
+<h1>Список авторів</h1>
+<ul class="list-group">
     {% for author in object_list %}
-    <li>{{ author.first_name }} {{ author.last_name }}</li>
+    <li class="list-group-item">{{ author.first_name }} {{ author.last_name }}</li>
     {% endfor %}
 </ul>
 {% endblock %}

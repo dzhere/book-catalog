@@ -7,4 +7,5 @@ urlpatterns = [
     path('books/', BooksListView.as_view(), name='books_list'),
     path('genres/', GenresListView.as_view(), name='genres_list'),
     path('authors/', AuthorsListView.as_view(), name='authors_list'),
+    path('add_book_to_list/<int:id>', add_book_to_list, name='add_book_to_list')
 ]
