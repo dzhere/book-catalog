@@ -1,1 +1,1 @@
-web: gunicorn radiant-ridge-22412.wsgi --log-file -
+web: gunicorn bookcatalog.wsgi --log-file -
