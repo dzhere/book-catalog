@@ -17,7 +17,7 @@ class Genre(models.Model):
         return self.name
 
 class Book(models.Model):
-    authors = models.ForeignKey('Author', on_delete=models.CASCADE)
+    author = models.ForeignKey('Author', on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE, blank=True, null=True)

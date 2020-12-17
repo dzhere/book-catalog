@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AddAuthorView, AddGenreView, AddBookView
+from core.views import AddAuthorView, AddGenreView, AddBookView
 
 urlpatterns = [
     path('author/', AddAuthorView.as_view(), name='add_author'),

@@ -1,5 +1,5 @@
 from django.views.generic import CreateView
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from core.models import *
 
 class AddAuthorView(CreateView):
@@ -31,3 +31,12 @@ class AddBookView(CreateView):
         obj = form.save(commit=False)
         obj.save() 
         return redirect("/")
+
+def book_view(request, id):
+    book = Book.objects.get(pk=id)
+    return render(request, "books/book.html", {"book": book})
+
+def author_view(request, id):
+    author = Author.objects.get(pk=id)
+    books = Book.objects.all().filter(author=author)
+    return render(request, "books/author.html", {"author": author, "books": books})

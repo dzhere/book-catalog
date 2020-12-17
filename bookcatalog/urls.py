@@ -22,6 +22,7 @@ urlpatterns = [
     path('registration/', registration_view, name='registration'),
     path('login/', LoginFormView.as_view(), name='login'),
     path('logout/', LogoutFormView.as_view(), name='logout'),
-    path('add/', include('core.urls'), name='add'),
+    path('add/', include('core.urls.add'), name='add'),
+    path('', include('core.urls.books'), name='books'),
     path('', index_view, name='home'),
 ]
