@@ -1,4 +1,4 @@
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from core.models import *
@@ -44,3 +44,15 @@ def author_view(request, id):
     author = Author.objects.get(pk=id)
     books = Book.objects.all().filter(author=author)
     return render(request, "books/author.html", {"author": author, "books": books})
+
+class BooksListView(ListView):
+    model = Book
+    template_name = "books/books_list.html"
+
+class GenresListView(ListView):
+    model = Genre
+    template_name = "books/genres_list.html"
+
+class AuthorsListView(ListView):
+    model = Author
+    template_name = "books/authors_list.html"
