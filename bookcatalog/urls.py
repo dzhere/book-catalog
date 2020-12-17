@@ -24,5 +24,6 @@ urlpatterns = [
     path('logout/', LogoutFormView.as_view(), name='logout'),
     path('add/', include('core.urls.add'), name='add'),
     path('', include('core.urls.books'), name='books'),
+    path('profile/', profile_view, name='profile'),
     path('', index_view, name='home'),
 ]

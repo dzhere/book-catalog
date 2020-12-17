@@ -1,0 +1,12 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<p>{{ user.username }}</p>
+<ul>
+    {% for book in books_list %}
+    <li>{{ book.title }}</li>
+    {% empty %}
+    <p>В списку поки що немає книг!</p>
+    {% endfor %}
+</ul>
+{% endblock %}
