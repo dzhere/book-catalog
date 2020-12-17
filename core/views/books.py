@@ -1,8 +1,10 @@
 from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from core.models import *
 
-class AddAuthorView(CreateView):
+class AddAuthorView(LoginRequiredMixin, CreateView):
+    login_url = '/login/'
     model = Author
     fields = ('__all__')
     template_name = 'books/add.html'
@@ -12,7 +14,8 @@ class AddAuthorView(CreateView):
         obj.save() 
         return redirect("/")
 
-class AddGenreView(CreateView):
+class AddGenreView(LoginRequiredMixin, CreateView):
+    login_url = '/login/'
     model = Genre
     fields = ('__all__')
     template_name = 'books/add.html'
@@ -22,7 +25,8 @@ class AddGenreView(CreateView):
         obj.save() 
         return redirect("/")
 
-class AddBookView(CreateView):
+class AddBookView(LoginRequiredMixin, CreateView):
+    login_url = '/login/'
     model = Book
     fields = ('__all__')
     template_name = 'books/add.html'
